@@ -1,0 +1,60 @@
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-z82z6[0m
+{"level":"warn","ts":1583244549.192751,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583244549.1933908,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-lfgqp[0m
+{"level":"warn","ts":1583244549.8324652,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1583244549.844754,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-cb-kubecd-environment-pr-1-j8wpx-jvvf7[0m
+{"level":"warn","ts":1583244556.2601135,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"error","ts":1583244556.6624846,"logger":"fallback-logger","caller":"git/git.go:40","msg":"Error running git [fetch --depth=1 --recurse-submodules=yes origin 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4]: exit status 128\nerror: Server does not allow request for unadvertised object 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:40\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:91\nmain.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:39\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libexec/src/runtime/proc.go:200"}
+{"level":"error","ts":1583244557.5826533,"logger":"fallback-logger","caller":"git/git.go:40","msg":"Error running git [pull --recurse-submodules=yes origin]: exit status 1\nFrom https://github.com/cb-kubecd/environment-pr-172-21-boot-gke-dev\n * [new branch]      gh-pages   -> origin/gh-pages\n * [new branch]      master     -> origin/master\nYou asked to pull from the remote 'origin', but did not specify\na branch. Because this is not the default configured remote\nfor your current branch, you must specify a branch on the command line.\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:40\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:94\nmain.main\n\t/Users/abayer/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:39\nruntime.main\n\t/usr/local/Cellar/go/1.12.4/libexec/src/runtime/proc.go:200"}
+{"level":"warn","ts":1583244557.5828555,"logger":"fallback-logger","caller":"git/git.go:95","msg":"Failed to pull origin : exit status 1"}
+{"level":"info","ts":1583244557.5959778,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-pr-172-21-boot-gke-dev.git @ 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4 in path /workspace/source"}
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4,10:a140f59caa501565c970eddb7c5b0dea3ff30ff3
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow a140f59caa501565c970eddb7c5b0dea3ff30ff3: 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4:
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin a140f59caa501565c970eddb7c5b0dea3ff30ff3: 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4:
+DEBUG: ran git fetch origin a140f59caa501565c970eddb7c5b0dea3ff30ff3: 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git rev-parse --is-shallow-repository
+DEBUG: Unshallowed git repo in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch master
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4
+DEBUG: ran git reset --hard 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge a140f59caa501565c970eddb7c5b0dea3ff30ff3
+DEBUG: ran git merge a140f59caa501565c970eddb7c5b0dea3ff30ff3 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4..HEAD
+Merged SHA a140f59caa501565c970eddb7c5b0dea3ff30ff3 with commit message 'Delete app **-app-ui' into base branch master
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow a140f59caa501565c970eddb7c5b0dea3ff30ff3: 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4:
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin a140f59caa501565c970eddb7c5b0dea3ff30ff3: 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4:
+DEBUG: ran git fetch origin a140f59caa501565c970eddb7c5b0dea3ff30ff3: 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git rev-parse --is-shallow-repository
+DEBUG: Unshallowed git repo in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4
+DEBUG: ran git reset --hard 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge a140f59caa501565c970eddb7c5b0dea3ff30ff3
+DEBUG: ran git merge a140f59caa501565c970eddb7c5b0dea3ff30ff3 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 3b9baa060cc2aa2e8d4c6898f9d6e074e29235d4..HEAD
+Merged SHA a140f59caa501565c970eddb7c5b0dea3ff30ff3 with commit message 'Delete app **-app-ui' into base branch master
+
+Showing logs for build [32mmeta-cb-kubecd-environment-pr-1-j8wpx-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+error: : failed to git fetch origin 54909c258e38f4ed5e07d366de5df6d67af94724 for repo: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git in dir /builder/home/.**/jenkins-x-versions: failed to run 'git fetch origin 54909c258e38f4ed5e07d366de5df6d67af94724' command in directory '/builder/home/.**/jenkins-x-versions', output: 'error: Server does not allow request for unadvertised object 54909c258e38f4ed5e07d366de5df6d67af94724'
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
